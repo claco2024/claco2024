@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_marginStart="5dp"
+                android:id="@+id/back_btn"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/baseline_arrow_back_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:drawablePadding="16dp"
+                android:drawableTint="@color/white"
+                android:text="Registration"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/cardView5"
+                app:layout_constraintStart_toStartOf="@+id/cardView5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="20" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_back">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="3dp"
+                                    android:gravity="center"
+                                    android:text="Please fill up following details"
+                                    android:textSize="14dp"
+                                   />
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:hint="Full Name"
+                                    app:endIconMode="clear_text"
+                                    app:helperText="* required"
+                                    app:helperTextEnabled="true"
+                                    app:helperTextTextColor="@color/red_500">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/etName"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="text" />
+                                </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:hint="Email Id"
+                                    app:endIconMode="clear_text"
+                                    app:helperText="* required"
+                                    app:helperTextEnabled="true"
+                                    app:helperTextTextColor="@color/red_500">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/etEmail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="text" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Phone number"
+                                    app:endIconMode="clear_text"
+                                    app:helperText="* required"
+                                    app:helperTextEnabled="true"
+                                    app:helperTextTextColor="@color/red_500">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/etContact"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="number"
+                                        android:maxLength="10" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Password"
+                                    app:endIconMode="clear_text"
+                                    app:helperText="* required"
+                                    app:helperTextEnabled="true"
+                                    app:helperTextTextColor="@color/red_500">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/etPassword"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="textPassword"
+                                        android:maxLength="12" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Confirm password"
+                                    app:endIconMode="clear_text"
+                                    app:helperText="* required"
+                                    app:helperTextEnabled="true"
+                                    app:helperTextTextColor="@color/red_500">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/etConfirmPassword"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:imeOptions="actionDone"
+                                        android:inputType="textPassword"
+                                        android:maxLength="12" />
+                                </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/refrral_box"
+                                    android:visibility="gone"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Enter Referral Number"
+                                    app:endIconMode="clear_text"
+                                    app:helperTextTextColor="@color/red_500">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/reffral_et"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="number"
+                                        android:maxLength="10" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                                <TextView
+                                    android:id="@+id/reffral_btn"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="10dp"
+                                    
+                                    android:layout_width="match_parent"
+                                    android:gravity="end"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="Have a referral code?"
+                                    android:textColor="@color/black"
+                                    android:textSize="12dp"
+                                    android:fontFamily="sans-serif-medium"  />
+                                <!--                        <EditText-->
+                                <!--                            android:id="@+id/etName"-->
+                                <!--                            android:layout_width="match_parent"-->
+                                <!--                            android:layout_height="wrap_content"-->
+                                <!--                            android:hint="Full Name"-->
+                                <!--                            android:inputType="text"-->
+                                <!--                            android:textColor="@color/myblack"-->
+                                <!--                            android:textSize="14dp"-->
+                                <!--                            app:font_name="NunitoLight.ttf" />-->
+
+                            </LinearLayout>
+
+
+
+
+
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_warning"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:text="Warning : Password must be 8 characters with at least 1 Upper Case, 1 lower case, and 1 numeric character!!"
+                                                        android:visibility="gone" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <CheckBox
+                            android:id="@+id/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:buttonTint="@color/colorAccent"
+                            android:textColor="@color/black"
+                             />
+
+
+                        <TextView
+                            
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/checkbox"
+                            android:layout_alignBottom="@+id/checkbox"
+                            android:layout_toEndOf="@+id/checkbox"
+                            android:layout_toRightOf="@+id/checkbox"
+                            android:gravity="center_vertical"
+                            android:text="I have read terms and Conditions."
+                            android:textColor="@color/black_trans"
+                            />
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/tvRegisterButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_below="@+id/tvForgotPassword"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/capsulebutton_1"
+                        android:gravity="center"
+                        android:text="Register"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                         
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="6dp"
+                            android:text="Facebook"
+                            android:visibility="gone"
+                              android:layout_height="wrap_content"
+                            android:layout_width="match_parent"/>
+
+                        <TextView
+                            
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="6dp"
+                            android:text="Google"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"/>
+
+                    </LinearLayout>
+
+
+
+                    <TextView
+                        android:id="@+id/tvSignIn"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/login_signup_text"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:fontFamily="sans-serif-medium"  />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--    </ScrollView>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </layout>
