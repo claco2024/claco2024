@@ -1,16 +1,25 @@
 package com.claco.store;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WebViewTempActivity extends AppCompatActivity {
 
       private WebView webView;
+      private AlertDialog noInternetDialog;
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
@@ -21,18 +30,20 @@ public class WebViewTempActivity extends AppCompatActivity {
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setLoadWithOverviewMode(true);
             webView.getSettings().setUseWideViewPort(true);
-            webView.getSettings().setBuiltInZoomControls(false); // Disable built-in zoom controls
-            webView.getSettings().setDisplayZoomControls(false); // Disable zoom display controls
-            webView.getSettings().setSupportZoom(false); // Disable zoom support
+            webView.getSettings().setBuiltInZoomControls(false);
+            webView.getSettings().setDisplayZoomControls(false);
+            webView.getSettings().setSupportZoom(false);
 
-            webView.setWebViewClient(new WebViewClient() {
-                  @Override
-                  public void onPageFinished(WebView view, String url) {
-                        super.onPageFinished(view, url);
-                        webView.evaluateJavascript("window.getSelection().removeAllRanges();", null);
-                  }
-            });
-            webView.loadUrl("https://www.claco.in/");
+            loadWebView();
+      }
+
+      private void loadWebView() {
+            if (NetworkUtil.isInternetAvailable(this)) {
+                  webView.setWebViewClient(new CustomWebViewClient());
+                  webView.loadUrl("https://www.claco.in/");
+            } else {
+                  showNoInternetDialog();
+            }
       }
 
       @Override
@@ -47,5 +58,55 @@ public class WebViewTempActivity extends AppCompatActivity {
       @Override
       public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             // This overrides the default context menu creation
+      }
+
+      private void showNoInternetDialog() {
+            if (noInternetDialog != null && noInternetDialog.isShowing()) {
+                  return;
+            }
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View dialogView = inflater.inflate(R.layout.no_internet_dilog, null);
+            builder.setView(dialogView);
+
+            noInternetDialog = builder.create();
+
+            TextView dialogTitle = dialogView.findViewById(R.id.dialog_title);
+            TextView dialogMessage = dialogView.findViewById(R.id.dialog_message);
+            Button dialogButton = dialogView.findViewById(R.id.dialog_button);
+
+            dialogTitle.setText("No Internet Connection");
+            dialogMessage.setText("Please check your internet settings and try again.");
+
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                        noInternetDialog.dismiss();
+                        // Re-check the internet connection and reload the WebView
+                        loadWebView();
+                  }
+            });
+
+            noInternetDialog.show();
+      }
+
+      private class CustomWebViewClient extends WebViewClient {
+            @RequiresApi(api = 23)
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                  super.onReceivedError(view, request, error);
+                  if (!NetworkUtil.isInternetAvailable(WebViewTempActivity.this)) {
+                        showNoInternetDialog();
+                  }
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                  super.onReceivedError(view, errorCode, description, failingUrl);
+                  if (!NetworkUtil.isInternetAvailable(WebViewTempActivity.this)) {
+                        showNoInternetDialog();
+                  }
+            }
       }
 }
