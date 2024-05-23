@@ -4,8 +4,6 @@ plugins {
 
 }
 
-
-
 android {
     namespace = "com.claco.store"
     compileSdk = 34

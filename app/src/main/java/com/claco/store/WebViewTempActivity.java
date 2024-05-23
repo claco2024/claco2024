@@ -19,11 +19,16 @@ public class WebViewTempActivity extends AppCompatActivity {
 
             webView = findViewById(R.id.webview);
             webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setLoadWithOverviewMode(true);
+            webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setBuiltInZoomControls(false); // Disable built-in zoom controls
+            webView.getSettings().setDisplayZoomControls(false); // Disable zoom display controls
+            webView.getSettings().setSupportZoom(false); // Disable zoom support
+
             webView.setWebViewClient(new WebViewClient() {
                   @Override
                   public void onPageFinished(WebView view, String url) {
                         super.onPageFinished(view, url);
-                        // Dismiss any existing toast messages if necessary
                         webView.evaluateJavascript("window.getSelection().removeAllRanges();", null);
                   }
             });
@@ -32,17 +37,15 @@ public class WebViewTempActivity extends AppCompatActivity {
 
       @Override
       public void onBackPressed() {
-            // Check if the WebView can go back
             if (webView.canGoBack()) {
-                  webView.goBack(); // If so, go back
+                  webView.goBack();
             } else {
-                  super.onBackPressed(); // If not, proceed with the normal back button behavior
+                  super.onBackPressed();
             }
       }
 
       @Override
       public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             // This overrides the default context menu creation
-            // So that the "Copy" toast message won't be shown
       }
 }
