@@ -25,7 +25,6 @@ public class WebViewTempActivity extends AppCompatActivity {
       protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_web_view_temp);
-
             webView = findViewById(R.id.webview);
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setLoadWithOverviewMode(true);
@@ -92,7 +91,6 @@ public class WebViewTempActivity extends AppCompatActivity {
       }
 
       private class CustomWebViewClient extends WebViewClient {
-            @RequiresApi(api = 23)
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                   super.onReceivedError(view, request, error);
@@ -104,9 +102,10 @@ public class WebViewTempActivity extends AppCompatActivity {
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                   super.onReceivedError(view, errorCode, description, failingUrl);
-                  if (!NetworkUtil.isInternetAvailable(WebViewTempActivity.this)) {
+                  if (failingUrl == null && !NetworkUtil.isInternetAvailable(WebViewTempActivity.this)) {
                         showNoInternetDialog();
                   }
             }
       }
+
 }

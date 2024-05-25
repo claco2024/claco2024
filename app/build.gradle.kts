@@ -12,8 +12,8 @@ android {
         applicationId = "com.claco.store"
         minSdk = 21
         targetSdk = 34
-        versionCode = 7
-        versionName = "2.5"
+        versionCode = 8
+        versionName = "2.6"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,9 +41,6 @@ android {
 }
 
 dependencies {
-
-
-
     implementation("com.google.dagger:hilt-android:2.44")
    // kapt("com.google.dagger:hilt-android-compiler:2.44")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
