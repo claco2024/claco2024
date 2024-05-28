@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -16,13 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-
-        <!-- Set SplashActivity as the launcher activity -->
+        <activity
+            android:name="claco.store.screens.SplashScrollActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginWebView"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterWebView"
+            android:exported="false" />
+     
+<!--        <activity-->
+<!--            android:name="claco.store.screens.Spalsh2"-->
+<!--            android:exported="false" /> &lt;!&ndash; Set SplashActivity as the launcher activity &ndash;&gt;-->
         <activity
             android:name=".WebViewTempActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -36,15 +48,14 @@
         <activity
             android:name="claco.store.MainActivity"
             android:exported="false"
-            android:theme="@style/AppTheme" />
-
-        <!-- SplashActivity -->
+            android:theme="@style/AppTheme" /> <!-- SplashActivity -->
         <activity
             android:name="claco.store.screens.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

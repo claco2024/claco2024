@@ -1,6 +1,8 @@
 package claco.store.screens
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -11,15 +13,35 @@ import com.claco.store.WebViewTempActivity
 import com.claco.store.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
-    lateinit var binding : ActivitySplashBinding
+    private lateinit var binding: ActivitySplashBinding
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("claco.store", Context.MODE_PRIVATE)
+
+        // Check if it's the first launch
+        val isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch", true)
+
+        // Delayed redirection
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, WebViewTempActivity::class.java)
-            startActivity(intent)
+            val redirectIntent = if (isFirstLaunch) {
+                // If it's the first launch, redirect to SplashScrollActivity
+                Intent(this@SplashActivity, SplashScrollActivity::class.java)
+            } else {
+                // If it's not the first launch, redirect to WebViewTempActivity
+                Intent(this@SplashActivity, WebViewTempActivity::class.java)
+            }
+            startActivity(redirectIntent)
             finish()
-        }, 300)
+        }, 500)
+
+        // Update SharedPreferences flag to indicate app has been launched before
+        if (isFirstLaunch) {
+            sharedPreferences.edit().putBoolean("isFirstLaunch", false).apply()
+        }
     }
 }

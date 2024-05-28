@@ -57,4 +57,18 @@
     <string name="faq88">We have a "no questions asked return and refund policy" which entitles all our members to return the product at the time of delivery if due to some reason they are not satisfied with the quality or freshness of the product. We will take the returned product back with us and issue a credit note for the value of the return products which will be credited to your account on the Site. This can be used to pay your subsequent shopping bills..\n\n1. Perishable goods: Within 48 hours from the delivery date.\n2. Other goods : Within 7 days from the delivery date.</string>
     <string name="enter_otp">Enter OTP</string>
     <string name="hello_blank_fragment">Enter OTP</string>
+
+
+    <!--   Splash Heading-->
+    <string name="heading_1">Welcome to Claco</string>
+    <string name="heading_2">Discount On Shopping</string>
+    <string name="heading_3">Speedy Delivery</string>
+
+    <!--    description-->
+
+    <string name="description_1">Discover endless possibilities in every click.</string>
+    <string name="description_2">More Shopping and get more Discounts </string>
+    <string name="description_3">Sit back and relax while we bring your purchases to your doorstep in record time.</string>
+
+
 </resources>
