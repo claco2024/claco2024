@@ -61,14 +61,14 @@
 
     <!--   Splash Heading-->
     <string name="heading_1">Welcome to Claco</string>
-    <string name="heading_2">Discount On Shopping</string>
-    <string name="heading_3">Speedy Delivery</string>
+    <string name="heading_2">Mega Deals</string>
+    <string name="heading_3">Get it Faster</string>
 
     <!--    description-->
 
     <string name="description_1">Discover endless possibilities in every click.</string>
-    <string name="description_2">More Shopping and get more Discounts </string>
-    <string name="description_3">Sit back and relax while we bring your purchases to your doorstep in record time.</string>
+    <string name="description_2">Smart Shopping, Big Savings   Shop Smarter, Save More</string>
+    <string name="description_3">No Waiting, Just Getting  Express Delivery at Your Doorstep.</string>
 
 
 </resources>

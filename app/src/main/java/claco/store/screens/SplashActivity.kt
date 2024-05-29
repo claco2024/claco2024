@@ -37,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
             }
             startActivity(redirectIntent)
             finish()
-        }, 500)
+        }, 1500)
 
         // Update SharedPreferences flag to indicate app has been launched before
         if (isFirstLaunch) {
